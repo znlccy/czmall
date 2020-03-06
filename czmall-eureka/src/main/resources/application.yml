@@ -1,0 +1,20 @@
+# Eureka端口
+server:
+  port: 1002
+
+# 应用名称
+spring:
+  application:
+    name: czmall-eureka                                                       # 配置微服务名称
+
+eureka:
+  instance:
+    hostname: localhost                                                       # 默认主机地址
+  client:
+    register-with-eureka: false                                               # 是否注册到注册中心
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka   # 注册地址
+  server:
+    enable-self-preservation: false                                           # 关闭自我保护机制
+    eviction-interval-timer-in-ms: 10000                                      # 定期清理无效连接

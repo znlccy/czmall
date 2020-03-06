@@ -1,0 +1,29 @@
+server:
+  port: 1003
+
+spring:
+  application:
+    name: czmall-gateway
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:1002/eureka
+    registry-fetch-interval-seconds: 5            # 拉取服务时间
+
+zuul:
+  prefix: /api
+  routes:
+    czmall-goods: /goods/**                      # 路由到商品的微服务
+        # path: /goods-service/**
+        # url: http://localhost:8082
+        # serviceId: goods-service
+    czmall-upload: /upload/**                    # 路由到上传的微服务
+    czmall-email: /email/**                      # 路由到邮件的微服务
+    czmall-user: /user/**                        # 路由到用户的微服务
+    czmall-order: /order/**                      # 路由到订单的微服务
+    czmall-search: /search/**                    # 路由到搜索的微服务
+
+

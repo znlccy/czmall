@@ -1,0 +1,19 @@
+# 上传端口
+server:
+  port: 1007
+
+spring:
+  application:
+    name: czmall-upload
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1002/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+
+fdfs:
+  pool:
+    fairness: false
